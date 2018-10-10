@@ -55,13 +55,11 @@ def inductees_to_xlsx(inductees):
     print("Converting data to xlsx...")
     wb = Workbook()
     ws = wb.active
-    i_number = 1
-    for o in inductees:
-        ws['A'+str(i_number)] = o.name
-        ws['B'+str(i_number)] = o.year
-        ws['C'+str(i_number)] = o.category
-        ws['D'+str(i_number)] = o.members
-        i_number += 1
+    for i, inductee in enumerate(inductees, start = 1):
+        ws['A'+str(i)] = inductee.name
+        ws['B'+str(i)] = inductee.year
+        ws['C'+str(i)] = inductee.category
+        ws['D'+str(i)] = inductee.members
     wb.save("inductees.xlsx")
 
 
